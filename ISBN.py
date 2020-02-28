@@ -13,3 +13,5 @@ x13=10-remain
 print(ISBN12+str(x13))
 if remain==0:
     x13=0
+else:
+    x13=10-remain
