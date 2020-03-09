@@ -1,0 +1,276 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang2057{\fonttbl{\f0\fnil\fcharset0 Calibri;}{\f1\fnil\fcharset1 Cambria Math;}}
+{\colortbl ;\red255\green0\blue0;}
+{\*\generator Riched20 10.0.10240}{\*\mmathPr\mmathFont1\mwrapIndent1440 }\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs28\lang9\tab # <QUESTION 1>\par
+\u8203?\par
+\tab # Define a function that can accept two strings as input and returns the string with maximum length to the console. \par
+\tab\par
+\tab # If two strings have the same length, then the function should return both strings separated by a " ".\par
+\u8203?\par
+\tab # In this case, the strings should be returned in the same order in which they were given.\par
+\u8203?\par
+\tab # <EXAMPLES>\par
+\u8203?\par
+\tab # one("hi","hello") \f1\u8594?\f0  "hello"\par
+\tab # one("three", "two") \f1\u8594?\f0  "three"\par
+\tab # one("three", "hello") \f1\u8594?\f0  "three hello"\par
+\u8203?\par
+\tab # <HINT># What was the name of the function we have seen to check the length of a container?  Use your CLI to access the Python documentation and get help(len).\par
+\u8203?\par
+def one(input1, input2):\par
+    if len(input1) > len(input2):\par
+        return input1\par
+    elif len(input1) < len(input2):\par
+        return input2\par
+    else:\par
+        return input1 + " " + input2\par
+\u8203?\par
+\tab # <QUESTION 2>\par
+\u8203?\par
+    # Return the string that is between the first and last appearance of "bert" in the given string\tab\par
+\tab # Return the empty string "" if there is not 2 occurances of "bert" \par
+\tab # IGNORE CASE\par
+   \par
+    # <EXAMPLES>\par
+\tab # two("bertclivebert") \f1\u8594?\f0  "clive"\par
+\tab # two("xxbertfridgebertyy") \f1\u8594?\f0  "fridge"\par
+\tab # two("xxBertfridgebERtyy") \f1\u8594?\f0  "fridge"\par
+\tab # two("xxbertyy") \f1\u8594?\f0  ""\par
+\tab # two("xxbeRTyy") \f1\u8594?\f0  ""\par
+\u8203?\par
+\tab # <HINT>\par
+ What was the name of the function we have seen to seperate a String? How can we make a string all upper or lower case?\par
+\tab # Use your CLI to access the Python documentation and get help manipulating strings - help(str).\par
+\u8203?\par
+def two(input):\par
+\tab n = 0\par
+\tab lower_input = input.lower()\par
+\tab start_of_berts=[]\par
+\tab while n<len(input):\par
+\tab\tab if lower_input[n]=="b":\par
+\tab\tab\tab if lower_input[n:n+4] == "bert":\par
+\tab\tab\tab\tab start_of_berts.append(n)\par
+\tab\tab\tab\tab n+=4\par
+\tab\tab\tab\tab continue\par
+\tab\tab n+=1\par
+\tab if len(start_of_berts)<2:\par
+\tab\tab return ""\par
+\tab else:\par
+\tab\tab ret_input=input[start_of_berts[0]+4:start_of_berts[-1]]\par
+\tab\tab return ret_input\par
+\u8203?\par
+\tab # <QUESTION 3>\par
+\u8203?\par
+    # given a number\par
+\tab # if this number is divisible by 3 return "fizz"\par
+\tab # if this number is divisible by 5 return "buzz"\par
+\tab # if this number is divisible by both 3 and 5 return "fizzbuzz"\par
+\tab # if this number is not divisible by 3 or 5 return "null"\par
+\tab     \par
+    # <EXAMPLES>\par
+\u8203?\par
+\tab # three(3) \f1\u8594?\f0  "fizz"\par
+\tab # three(10) \f1\u8594?\f0  "buzz"\par
+\tab # three(15) \f1\u8594?\f0  "fizzbuzz"\par
+\tab # three(8) \f1\u8594?\f0  "null"\par
+\u8203?\par
+\tab # <HINT>\par
+\u8203?\par
+\tab # No Hints for this question\par
+\u8203?\par
+def three(arg1):\par
+    if arg1 % 3 == 0:\par
+        if arg1 % 5 == 0:\par
+            return "fizzbuzz"\par
+        else:\par
+            return "fizz"\par
+    elif arg1 % 5 == 0:\par
+        return "buzz"\par
+    else:\par
+        return "null"\par
+\u8203?\par
+\b\i\u8203?\par
+\tab\b0\i0 # <QUESTION 4>\b\i\par
+\b0\i0\u8203?\par
+    # Given a string seperate the string into the individual numbers present, then add each digit of each number to get a final value for each number\par
+\u8203?\par
+\tab # String example = "55 72 86"\par
+\tab # "55" will = the integer 10\par
+\tab # "72" will = the integer 9\par
+\tab # "86" will = the integer 14\par
+\tab\par
+\tab # You then need to return the highest value, in the example above this would be 14.\par
+    # <EXAMPLES>\par
+\tab # four("55 72 86") \f1\u8594?\f0  14\par
+\tab # four("15 72 80 164") \f1\u8594?\f0  11\par
+\tab # four("555 72 86 45 10") \f1\u8594?\f0  15\par
+\tab # <HINT>help(int) for working with numbers and help(str) for working with Strings.\par
+def four(arg1):\par
+\tab numList = arg1.split()\par
+\tab largest = 0\par
+\tab for num in numList:\par
+\tab\tab size = 0\par
+\tab\tab strNum = str(num)\par
+\tab\tab for digit in range(len(strNum)):\par
+\tab\tab\tab size += int(strNum[digit])\par
+\tab\tab\tab if size > largest:\par
+\tab\tab\tab\tab largest = size   \par
+\tab return largest\par
+\u8203?\par
+\tab\cf1\b\i # <QUESTION 5>\cf0\b0\i0\par
+\u8203?\par
+    # Given a large string that represents a csv, the structure of each record will be as follows:\par
+    \par
+    # owner,nameOfFile,encrypted?,fileSize\par
+    \par
+    # "Bert,helloWorld.py,True,1447,Bert,strings.py,False,1318,Jeff,dice.py,False,1445"\par
+    # For each record, if it is not encrypted, return the names of the owners of the files in a String Array.\par
+    # Do not include duplicate names.\par
+\tab # If all records are encrypted, return an empty Array.\par
+    \par
+    # <EXAMPLES>\par
+    # five("Jeff,random.py,False,1445") \f1\u8594?\f0  ["Jeff"]\par
+\tab # five("Bert,numberGen.py,True,1447,Bert,integers.py,True,1318,Jeff,floats.py,False,1445") \f1\u8594?\f0  ["Jeff"]\par
+\tab # five("Bert,boolean.py,False,1447,Bert,conditions.py,False,1318,Jeff,loops.py,False,1445") \f1\u8594?\f0  ["Bert","Jeff"]\par
+    # five("Bert,prime.py,True,1447,Bert,ISBN.py,False,1318,Jeff,OOP.py,False,1445") \f1\u8594?\f0  ["Bert","Jeff"]\par
+    \par
+\tab # <HINT> Dont't forget, False is a String, not a Boolean value in the Tests above.\par
+\u8203?\par
+\tab # help(str) and help(list), you might also need to use a function that can create a list of numbers for you, try help(range).\par
+\u8203?\par
+def five(input):\par
+    listFiles = input.split(",")\par
+    length = len(listFiles)\par
+    unsafe = []\par
+    for encrypt in range(2,length,4):\par
+        if listFiles[encrypt] == "False" and listFiles[(encrypt-2)] not in unsafe:\par
+            unsafe.append(listFiles[(encrypt-2)])\par
+   \par
+    return unsafe\par
+\u8203?\par
+\cf1\b\i\tab # <QUESTION 6>\cf0\b0\i0\par
+\u8203?\par
+    # There is a well known mnemonic which goes "I before E, except after C", which is used to determine which order "ei" or "ie" should be in a word.\par
+    # Write a function which returns the boolean True if a string follows the mnemonic, and returns the boolean False if not.\par
+\u8203?\par
+\tab # <EXAMPLES>\par
+\u8203?\par
+    # six("ceiling") \f1\u8594?\f0  True\par
+    # six("believe") \f1\u8594?\f0  True\par
+    # six("glacier") \f1\u8594?\f0  False\par
+    # six("height") \f1\u8594?\f0  False\par
+\u8203?\par
+\tab # <HINT>Step through the logic here in order to solve the problem, you may find help(range) helpful.\par
+\u8203?\par
+def six(input):\par
+\tab for letter in range(len(input)-1):\par
+\tab\tab if input[letter] == "i" and input[letter+1] == "e":\par
+\tab\tab\tab\cf1 if input[letter-1] == "c":\cf0\par
+\tab\tab\tab\tab return False\par
+\tab\tab\tab else:\par
+\tab\tab\tab\tab return True\par
+\tab\tab elif input[letter] == "e" and input[letter+1] == "i":\par
+\tab\tab\tab if input[letter-1] == "c":\par
+\tab\tab\tab\tab return True\par
+\tab\tab\tab else:\par
+\tab\tab\tab\tab return False\par
+\u8203?\par
+\tab # <QUESTION 7>\par
+\u8203?\par
+    # Write a function which returns the integer number of vowels in a given string. \par
+    # You should ignore case.\par
+\u8203?\par
+\tab # <EXAMPLES>\par
+\u8203?\par
+    # seven("Hello") \f1\u8594?\f0  2\par
+    # seven("hEelLoooO") \f1\u8594?\f0  6\par
+\u8203?\par
+\tab # <HINTS># How do we ignore case in a String? help(str) may offer some insight.\par
+\par
+def seven(input):\par
+\tab input = input.lower()\par
+\tab count = 0\par
+\tab word_length = len(input)\par
+\tab for letter in range(word_length):\par
+\tab\tab if input[letter] == "a":\par
+\tab\tab\tab count += 1\par
+\tab\tab elif input[letter] == "e":\par
+\tab\tab\tab count += 1\par
+\tab\tab elif input[letter] == "i":\par
+\tab\tab\tab count += 1\par
+\tab\tab elif input[letter] == "o":\par
+\tab\tab\tab count += 1\par
+\tab\tab elif input[letter] == "u":\par
+\tab\tab\tab count += 1\par
+\tab return count\par
+\u8203?\par
+\tab # <QUESTION 8>\par
+\u8203?\par
+\tab # Write a function which takes an input (between 1 and 10 inclusive) and multiplies it by all the numbers before it.\par
+\tab # eg If the input is 4, the function calculates 4x3x2x1 = 24 \par
+\u8203?\par
+\tab # <EXAMPLES>\par
+\u8203?\par
+\tab # eight(1) \f1\u8594?\f0  1\par
+\tab # eight(4) \f1\u8594?\f0  24\par
+\tab # eight(8) \f1\u8594?\f0  40320\par
+\u8203?\par
+\tab # <HINT># You may need to create a list of numbers from 0 to i, take a look at help(range).\par
+\u8203?\par
+def eight(input):\par
+\tab total = 1\par
+\tab for num in range(1,input+1):\par
+\tab\tab total *= num  \par
+\tab return total\par
+\cf1\b\i\u8203?\par
+\tab # <QUESTION 9>\par
+\cf0\b0\i0\u8203?\par
+    # Given a string and a char, returns the position in the String where the char first appears.\par
+    # Ensure the positions are numbered correctly, please refer to the examples for guidance.\par
+    # DO NOT ignore case\par
+    # IGNORE whitespace\par
+    # If the char does not occur, return the number -1.\par
+    \par
+    # <EXAMPLES>\par
+\u8203?\par
+\tab # nine("This is a Sentence","s") \f1\u8594?\f0  4\par
+\tab # nine("This is a Sentence","S") \f1\u8594?\f0  8\par
+\tab # nine("Fridge for sale","z") \f1\u8594?\f0  -1\par
+\u8203?\par
+\tab # <HINT># Take a look at the documentation for Strings, List and range.\par
+\u8203?\par
+def nine(inputString, char):\par
+\tab inputString = inputString.split()\par
+\tab inputString = "".join(inputString)\par
+\tab word_length = len(inputString)\par
+\tab for letter in range(word_length):\par
+\tab\tab if inputString[letter] == char:\par
+\tab\tab\tab return letter +1\par
+\tab return -1\par
+\u8203?\par
+\tab\cf1\b\i # <QUESTION 10>\cf0\b0\i0\par
+\u8203?\par
+    # Given a string, int and a char, return a boolean value if the 'nth' \par
+    # (represented by the int provided) char of the String supplied is the same as the char supplied.\par
+    # The int provided will NOT always be less than than the length of the String.\par
+    # IGNORE case and Whitespace. \par
+    \par
+    # <EXAMPLES>\par
+\tab # ten("The",2,'h') \f1\u8594?\f0  True\par
+\tab # ten("AAbb",1,'b') \f1\u8594?\f0  False\par
+\tab # ten("Hi-There",10,'e') \f1\u8594?\f0  False\par
+\u8203?\par
+\tab # <HINT># How do we find the length of a container, take a look at help(len), you will also need to look at help(str) for String manipulation.\par
+ \par
+def ten(string, int, char):\par
+\tab string = string.lower()\par
+\tab word_length = len(string)\par
+\tab if int <= word_length:\par
+\tab\tab if string[int-1] == char:\par
+\tab\tab\tab return True\par
+\tab\tab else:\par
+\tab\tab\tab return False\par
+\tab else:\par
+\tab\tab return False\lang9\par
+}
+ 
